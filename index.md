@@ -12,7 +12,7 @@ order: 0
 </h1>
 
 <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
-  A new global dataset covering international transactions from the 19th century to the present.
+  A new global dataset covering international transactions from 1800 to the present.
 </p>
 
 <p style="font-size: 1rem; color: #444; margin-bottom: 1.5rem;">
