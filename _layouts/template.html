@@ -12,6 +12,7 @@
     body {
       margin: 0;
       font-family: sans-serif;
+      scroll-behavior: smooth;
     }
     .navbar {
       background-color: #f7f9fc;
@@ -20,10 +21,17 @@
       align-items: center;
       padding: 1rem 2rem;
       border-bottom: 1px solid #e0e0e0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     .navbar h1 {
       margin: 0;
       font-size: 1.5rem;
+    }
+    .navbar h1 a {
+      text-decoration: none;
+      color: inherit;
     }
     .navbar ul {
       list-style: none;
@@ -44,7 +52,7 @@
     }
     section {
       max-width: 800px;
-      margin: 2rem auto;
+      margin: 3rem auto;
       padding: 0 1rem;
     }
     footer {
@@ -58,7 +66,7 @@
 </head>
 <body>
   <div class="navbar">
-    <h1>WBoP</h1>
+    <h1><a href="#top">WBoP</a></h1>
     <ul>
       <li><a href="#research">Research</a></li>
       <li><a href="#data">Data</a></li>
@@ -66,7 +74,7 @@
     </ul>
   </div>
 
-  <section id="wbop">
+  <section id="top">
     <h2>World Historical Balance of Payments (WBoP)</h2>
     <p>A new global dataset covering international transactions from the 19th century to the present.</p>
     <p>Developed by Gastón Nievas and Thomas Piketty, WBoP harmonizes balance of payments data across time and countries, enabling long-run comparative analysis of trade, capital flows, and macroeconomic adjustment.</p>
