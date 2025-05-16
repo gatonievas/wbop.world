@@ -8,7 +8,7 @@ order: 0
 <div style="text-align: center; padding: 4rem 1rem; max-width: 800px; margin: 0 auto;">
 
 <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">
-  World Historical Balance of Payments (WHBoP)
+  World Historical Balance of Payments (WBoP)
 </h1>
 
 <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
