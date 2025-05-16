@@ -16,7 +16,7 @@ order: 0
 </p>
 
 <p style="font-size: 1rem; color: #444; margin-bottom: 1.5rem;">
-  Developed by Gastón Nievas and co-authors, WHBoP harmonizes balance of payments data across time and countries,
+  Developed by Gastón Nievas and Thomas Piketty, WHBoP harmonizes balance of payments data across time and countries,
   enabling long-run comparative analysis of trade, capital flows, and macroeconomic adjustment.
 </p>
 
