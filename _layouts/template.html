@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World Historical Balance of Payments (WBoP)</title>
+  <title>World Historical Balance of Payments (WBOP)</title>
 
   {% seo %}
   <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
@@ -64,15 +64,17 @@
     #history-section {
       display: flex;
       flex-direction: row;
-      gap: 2rem;
+      gap: 3rem;
       align-items: flex-start;
+      max-width: 1200px;
+      width: 100%;
     }
     #history-text {
-      flex: 1;
+      flex: 2;
     }
     #slideshow {
       flex: 1;
-      max-width: 400px;
+      max-width: 500px;
       text-align: center;
     }
     #slideshow img {
