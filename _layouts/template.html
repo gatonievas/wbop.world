@@ -98,6 +98,32 @@
       color: #888;
       padding: 2rem;
     }
+    #hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background: url('images/lebreton_bsas.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  
+  .hero-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .hero-overlay h1 {
+    color: white;
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin: 0;
+    line-height: 1.2;
+  } 
   </style>
 </head>
 <body>
@@ -112,6 +138,12 @@
   </div>
 
   <main>
+    <section id="hero">
+    <div class="hero-overlay">
+      <h1>WORLD HISTORICAL<br>BALANCE OF PAYMENTS</h1>
+    </div>
+    </section>
+   
     <section id="wbop">
       <h2>World Historical Balance of Payments (WBOP)</h2>
       <p>A new global dataset covering international transactions from the 19th century to the present.</p>
@@ -152,7 +184,7 @@
       </div>
 
       <div id="slideshow">
-        <img id="slide-image" src="images/bop_19101923:jpg" alt="BoP image">
+        <img id="slide-image" src="images/bop_19101923.jpg" alt="BoP image">
         <div class="slideshow-controls">
           <button onclick="changeSlide(-1)">&laquo;</button>
           <button onclick="changeSlide(1)">&raquo;</button>
