@@ -84,11 +84,11 @@
     }
     #slideshow {
       flex: 1;
-      max-width: 800px;
+      max-width: 1000px;
       text-align: center;
     }
     #slideshow img {
-      max-width: 120%;
+      max-width: 100%;
       height: auto;
       border: 1px solid #ccc;
       border-radius: 8px;
@@ -111,6 +111,7 @@
     #hero {
     position: relative;
     width: 100vw;
+    margin-left: calc(-50vw + 50%);
     height: 60vh;
     background: url('images/lebreton_bsas.jpg') no-repeat center center;
     background-size: cover;
@@ -119,9 +120,8 @@
     justify-content: center;
     margin-bottom: 3rem;
   }
-  
   .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.3); /* dark overlay */
+    background-color: rgba(0, 0, 0, 0.2); /* dark overlay */
     padding: 2rem;
     text-align: center;
   }
@@ -142,7 +142,7 @@
     <ul>
       <li><a href="#research">Research</a></li>
       <li><a href="#data">Data</a></li>
-      <li><a href="#history">History</a></li>
+      <li><a href="#history-section">History</a></li>
       <li><a href="#contact">Contact Us</a></li>
     </ul>
   </div>
