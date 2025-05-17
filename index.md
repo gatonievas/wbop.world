@@ -1,15 +1,33 @@
 ---
-title: About
+title: WHBoP
 layout: template
 filename: index
 order: 0
----  
+---
 
-## About me
+<div style="text-align: center; padding: 4rem 1rem; max-width: 800px; margin: 0 auto;">
 
-I am an Economics PhD candidate at the [Paris School of Economics (PSE)](https://www.parisschoolofeconomics.eu/en/){:target="_blank"} and [École des hautes études en sciences sociales (EHESS)](https://www.ehess.fr/fr){:target="_blank"}. I am working under the supervision of [Thomas Piketty](http://piketty.pse.ens.fr/en/){:target="_blank"}, with [Gabriel Zucman](https://gabriel-zucman.eu/){:target="_blank"} in my thesis committee.
+<h1 style="font-size: 2.5rem; margin-bottom: 1rem;">
+  World Historical Balance of Payments (WBoP)
+</h1>
 
-Before joining PSE I spent 2 years as a Research Fellow at the InterAmerican Development Bank and 1 year at the World Bank, both in Washington D.C. (U.S.). I'm originally from Bahía Blanca (Argentina), where I did my BA in Universidad Nacional del Sur. I also hold a MA from Universidad de San Andrés and a MSc (Analysis and Policy in Economics) from PSE. 
+<p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+  A new global dataset covering international transactions from the 1800 to the present.
+</p>
 
-My research interests lie within International Political Economy and Geoconomics, with a particular focus on International Macroeconomics. 
+<p style="font-size: 1rem; color: #444; margin-bottom: 1.5rem;">
+  Developed by Gastón Nievas and Thomas Piketty, WHBoP harmonizes balance of payments data across time and countries,
+  enabling long-run comparative analysis of trade, capital flows, and macroeconomic adjustment.
+</p>
 
+<p style="font-size: 1rem; color: #444;">
+  The database is accompanied by a working paper and is intended as a public good for researchers, policymakers, and historians.
+</p>
+
+<br>
+
+<a href="/about.html" style="display: inline-block; padding: 0.6rem 1.2rem; background-color: #007BFF; color: white; border-radius: 6px; text-decoration: none; font-weight: bold;">
+  Learn More
+</a>
+
+</div>

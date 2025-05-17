@@ -1,88 +1,214 @@
+<!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=.9">
-    <title>Gastón Nievas</title>
-    
-{% seo %}
-    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h2><b>Gastón Nievas</b></h2>
-        
-        <img src="https://raw.githubusercontent.com/gatonievas/gatonievas.github.io/main/images/profile_picture.jpeg">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Historical Balance of Payments (WBoP)</title>
 
-        <p><a href="https://www.parisschoolofeconomics.eu/fr/nievas-gaston/" target="https://www.parisschoolofeconomics.eu/fr/nievas-gaston/">Economics PhD student at  Paris School of Economics (PSE)</a></p>
-     
-        
-        <br>
-        <small>gaston.nievas [at] psemail.eu</small>
-        <br>
-        <img src='https://www.pngfind.com/pngs/m/110-1102328_iconos-de-redes-sociales-png-sebtec-logo-twitter.png' height=5% width=5%>
-        <a href="https://twitter.com/gatonievas" target="https://twitter.com/gatonievas">Twitter</a>
-        <br>
- 
+  {% seo %}
+  <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      scroll-behavior: smooth;
+    }
+    .navbar {
+      background-color: #f7f9fc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #e0e0e0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .navbar h1 a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar li {
+      margin-left: 20px;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    section {
+      max-width: 800px;
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+    #history-section {
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    #history-text {
+      flex: 1;
+    }
+    #slideshow {
+      flex: 1;
+      max-width: 400px;
+      text-align: center;
+    }
+    #slideshow img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .slideshow-controls {
+      margin-top: 0.5rem;
+    }
+    .slideshow-controls button {
+      margin: 0 5px;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+    }
+    footer {
+      margin-top: 4em;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <h1><a href="#wbop">WBoP</a></h1>
+    <ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#data">Data</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </div>
 
-        {% if site.show_downloads %}
-        <ul class="downloads">
-          <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
-          <li><a href="{{ site.github.tar_url }}">Download <strong>TAR Ball</strong></a></li>
+  <main>
+    <section id="wbop">
+      <h2>World Historical Balance of Payments (WBoP)</h2>
+      <p>A new global dataset covering international transactions from the 19th century to the present.</p>
+      <p>Developed by Gastón Nievas and Thomas Piketty, WBoP harmonizes balance of payments data across time and countries, enabling long-run comparative analysis of trade, capital flows, and macroeconomic adjustment.</p>
+      <p>The database is accompanied by a working paper and is intended as a public good for researchers, policymakers, and historians.</p>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <p><a href="/paper.pdf">Download the working paper</a></p>
+    </section>
+
+    <section id="data">
+      <h2>Data</h2>
+      <p><a href="/data/whbop.zip">Download the dataset</a></p>
+    </section>
+
+    <section id="history-section">
+      <div id="history-text">
+        <h2>Brief history of the Balance of Payments</h2>
+        <h3>Origins</h3>
+        <p>The term “Balance of Payments” dates back to the 14th century, but its modern usage emerged in Sir James Steuart’s <em>An Inquiry into the Principles of Political Economy</em> (1767).</p>
+
+        <h3>Early national compilations & League of Nations</h3>
+        <p>In the 19th century, Great Britain and the United States produced the first national BoP statistics. After World War I disrupted global trade, the League of Nations mandated at its Third Assembly (28 September 1922) the systematic collection and publication of national BoP data. Its first report appeared in 1924, covering 13 countries; Germany’s data for 1924 were included in the 1926 reports. League subcommittees refined BoP concepts through the 1930s and reconvened in December 1945 to set the course for postwar international statistics.</p>
+
+        <h3>IMF & the BPM series</h3>
+        <ul>
+          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/BPM1.pdf" target="_blank">BPM 1 (1948)</a></strong>: First edition adopted January 1948, fundamentally based on the developments of the LoN.</li>
+          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/BPM2.pdf" target="_blank">BPM 2 (1950)</a></strong>: Quick update to introduce refinements for greater comparability between countries.</li>
+          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/BPM3.pdf" target="_blank">BPM 3 (1961)</a></strong>: Introduced more detailed sectoral tables.</li>
+          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/bpm4.pdf" target="_blank">BPM 4 (1977)</a></strong>: The collapse of Bretton Woods system of fixed exchange rates had a big impact on international financial markets, which resutled in an update of the BPM. This changes were salient in the financial account, where subcategories were introduced to gather better information to analyze the financial market evolution.</li>
+          <li><strong><a href="https://www.imf.org/external/np/sta/bop/BOPman.pdf" target="_blank">BPM 5 (1993)</a></strong>: Integrated International Investment Position (IIP), allowing for links between outstanding stocks of foreign financial assets and liabilities and their related changes (i.e.: transactions, valuation changes). Capital transfers were moved out of the current account and incorporated into the newly expanded capital and financial account. It also expanded the coverage of trade in services, which grew substantially.</li>
+          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/2007/pdf/BPM6.pdf" target="_blank">BPM 6 (2009)</a></strong>: IIP became central in the analysis, to the point where the manual was renamed to include it in the title. This new focus was the result of the BoP crisis that developing countries experienced in the 90s and early 2000s. Due to the rise of trade in services and trade in intermediate goods, the manual enhanced its coverage of both.</li>
+          <li><strong><a href="https://www.imf.org/-/media/Files/Data/Statistics/BPM6/draft-bpm7-wcv.ashx" target="_blank">BPM 7 (2025)</a></strong>: Fully integrating flows and stocks and addressing globalization, digitalization, and Islamic finance. Countries are encouraged to implement the new standards by 2029–2030.</li>
         </ul>
-        {% endif %}
-      </header>
-     
-       <section>
-       
-     <nav>
-      <ul>
-        {% assign sorted_pages = site.pages | sort:"order" %}
-          {% for node in sorted_pages %}
-          <li><a class="{% if page.url == node.url %}active{% endif %}" href="{{node.url}}">{{node.title}}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>  
-        
-      {{ content }}
-        
-      <style>
-      nav ul {
-        display: flex;
-        list-style: none;
-        margin-right: 5px;
-      }
-      nav ul li {
-        margin-right: 10px;
-      }
-      nav ul li a {
-        text-decoration: none;
-      }
-      nav ul li a:hover {
-        text-decoration: underline;
-      }
-      .active {
-        text-decoration: underline;
-      }
-    </style>
+      </div>
 
-   </section>  
-      
-    </div>
-    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-    {% if site.google_analytics %}
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', '{{ site.google_analytics }}', 'auto');
-      ga('send', 'pageview');
-    </script>
-    {% endif %}
-  </body>
+      <div id="slideshow">
+        <img id="slide-image" src="images/bop_1930.jpg" alt="BoP image">
+        <div class="slideshow-controls">
+          <button onclick="changeSlide(-1)">&laquo;</button>
+          <button onclick="changeSlide(1)">&raquo;</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: gaston.nievas [at] psemail.eu</p>
+      <p>Email: thomas.piketty [at] pse.ens.fr</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© {{ site.time | date: '%Y' }} WBoP | wbop.world</p>
+  </footer>
+
+  <script>
+    const images = [
+      "bop_1930.jpg",
+      "bop_19101923.jpg",
+      "bop_19311932.jpg",
+      "boptable_30a.jpg",
+      "boptable_30b.jpg",
+      "boptable_1023a.jpg",
+      "boptable_1023b.jpg",
+      "boptable_3132a.jpg",
+      "boptable_3132b.jpg",
+      "boptable_3132c.jpg",
+      "boptable_3132d.jpg"
+    ];
+
+    let currentSlide = 0;
+    const imageElement = document.getElementById("slide-image");
+
+    function showSlide(index) {
+      currentSlide = (index + images.length) % images.length;
+      imageElement.src = `images/${images[currentSlide]}`;
+    }
+
+    function changeSlide(step) {
+      showSlide(currentSlide + step);
+    }
+
+    setInterval(() => {
+      changeSlide(1);
+    }, 5000);
+  </script>
+
+  <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+  {% if site.google_analytics %}
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', '{{ site.google_analytics }}', 'auto');
+    ga('send', 'pageview');
+  </script>
+  {% endif %}
+</body>
 </html>

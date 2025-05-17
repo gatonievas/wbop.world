@@ -1,12 +1,9 @@
+title: World Historical Balance of Payments (WBoP)
+description: A global dataset on international transactions from the 19th century to today.
 theme: jekyll-theme-minimal
-minimal_mistakes_skin: "contrast"
-title: Gastón Nievas
-description: 
 markdown: kramdown
-plugins:
-  - jekyll-multiple-languages-plugin
-  - jemoji
-show_downloads: false
+show_downloads: true
+
 github:
   is_project_page: true
-  languages: ["sp", "en"]
+url: "https://wbop.world"
