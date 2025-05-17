@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World Historical Balance of Payments (WBOP)</title>
 
   {% seo %}
   <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
@@ -69,6 +68,17 @@
       max-width: 1200px;
       width: 100%;
     }
+    .hero-caption {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    color: white;
+    font-size: 0.85rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-style: italic;
+    }
     #history-text {
       flex: 2;
     }
@@ -100,7 +110,7 @@
     }
     #hero {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 60vh;
     background: url('images/lebreton_bsas.jpg') no-repeat center center;
     background-size: cover;
@@ -111,7 +121,7 @@
   }
   
   .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+    background-color: rgba(0, 0, 0, 0.3); /* dark overlay */
     padding: 2rem;
     text-align: center;
   }
@@ -139,9 +149,12 @@
 
   <main>
     <section id="hero">
-    <div class="hero-overlay">
-      <h1>WORLD HISTORICAL<br>BALANCE OF PAYMENTS</h1>
-    </div>
+      <div class="hero-overlay">
+        <h1>WORLD HISTORICAL<br>BALANCE OF PAYMENTS</h1>
+      </div>
+      <div class="hero-caption">
+        View of Buenos Aires from the new customs dock, Louis Le Breton (Circa 1860)
+      </div>
     </section>
    
     <section id="wbop">
