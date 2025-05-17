@@ -52,6 +52,42 @@
     .navbar a:hover {
       text-decoration: underline;
     }
+
+    #hero {
+      position: relative;
+      width: 100vw;
+      height: 60vh;
+      background: url('images/lebreton_bsas.jpg') no-repeat center center;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      text-align: center;
+    }
+    .hero-overlay h1 {
+      color: white;
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .hero-caption {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      color: white;
+      font-size: 0.85rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-style: italic;
+    }
+
     main {
       display: flex;
       flex-direction: column;
@@ -100,41 +136,6 @@
       color: #888;
       padding: 2rem;
     }
-  #hero {
-    position: relative;
-    width: 100vw;
-    height: 60vh;
-    background: url('images/lebreton_bsas.jpg') no-repeat center center;
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  .hero-overlay h1 {
-    color: white;
-    font-size: 3rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    margin: 0;
-    line-height: 1.2;
-  }
-  .hero-caption {
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    color: white;
-    font-size: 0.85rem;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
-    font-style: italic;
-  }
   </style>
 </head>
 <body>
@@ -148,15 +149,15 @@
     </ul>
   </div>
 
-    <section id="hero">
-      <div class="hero-overlay">
-        <h1>WORLD HISTORICAL<br>BALANCE OF PAYMENTS</h1>
-      </div>
-      <div class="hero-caption">
-        View of Buenos Aires from the new customs dock, Louis Le Breton (Circa 1860)
-      </div>
-    </section>
-  
+  <section id="hero">
+    <div class="hero-overlay">
+      <h1>WORLD HISTORICAL<br>BALANCE OF PAYMENTS</h1>
+    </div>
+    <div class="hero-caption">
+      View of Buenos Aires from the new customs dock, Louis Le Breton (Circa 1860)
+    </div>
+  </section>
+
   <main>
    
     <section id="wbop">
