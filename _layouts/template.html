@@ -71,6 +71,17 @@
       max-width: 1200px;
       width: 100%;
     }
+    .hero-caption {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    color: white;
+    font-size: 0.85rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-style: italic;
+    }
     #history-text {
       flex: 2;
     }
@@ -100,18 +111,20 @@
       color: #888;
       padding: 2rem;
     }
-  #hero {
+    #hero {
     position: relative;
     width: 100vw;
+    margin-left: calc(-50vw + 50%);
     height: 60vh;
     background: url('images/lebreton_bsas.jpg') no-repeat center center;
     background-size: cover;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
   }
   .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.2); /* dark overlay */
     padding: 2rem;
     text-align: center;
   }
@@ -123,18 +136,7 @@
     letter-spacing: 2px;
     margin: 0;
     line-height: 1.2;
-  }
-  .hero-caption {
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    color: white;
-    font-size: 0.85rem;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
-    font-style: italic;
-  }
+  } 
   </style>
 </head>
 <body>
@@ -148,6 +150,7 @@
     </ul>
   </div>
 
+  <main>
     <section id="hero">
       <div class="hero-overlay">
         <h1>WORLD HISTORICAL<br>BALANCE OF PAYMENTS</h1>
@@ -156,8 +159,6 @@
         View of Buenos Aires from the new customs dock, Louis Le Breton (Circa 1860)
       </div>
     </section>
-  
-  <main>
    
     <section id="wbop">
       <p>A new global dataset covering international transactions from the 19th century to the present.</p>
