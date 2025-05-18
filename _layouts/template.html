@@ -161,7 +161,7 @@
     <section id="wbop">
       <p>A new global dataset covering international transactions from 1800 to the present.</p>
       <p>Developed by <a href="https://www.gastonnievas.com/" target="_blank">Gastón Nievas</a> and <a href="http://piketty.pse.ens.fr/en/" target="_blank">Thomas Piketty</a>, WBOP harmonizes balance of payments data across time and countries, enabling long-run comparative analysis of trade, capital flows, and macroeconomic adjustment.</p>
-      <p>The database covers XX</p>
+      <p>The database covers XX and </p>
       <p>The database is accompanied by a working paper and is intended as a public good for researchers, policymakers, and historians.</p>
     </section>
 
@@ -206,11 +206,28 @@
 
       <div id="slideshow">
         <img id="slide-image" src="images/bop_19101923.jpg" alt="BoP image">
+      
+        <div id="zoom-button" style="
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+          background: rgba(0,0,0,0.6);
+          color: white;
+          padding: 5px 10px;
+          border-radius: 4px;
+          font-size: 0.9rem;
+          cursor: pointer;
+          z-index: 10;
+        ">
+          Zoom
+        </div>
+      
         <div class="slideshow-controls">
           <button onclick="changeSlide(-1)">&laquo;</button>
           <button onclick="changeSlide(1)">&raquo;</button>
         </div>
       </div>
+
     </section>
 
 <section id="contact">
