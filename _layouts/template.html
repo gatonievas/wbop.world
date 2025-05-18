@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>World Historical Balance of Payments (WBOP)</title>
-  
+
   {% seo %}
   <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
   <style>
@@ -15,7 +15,6 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
-
     .navbar {
       background-color: #f7f9fc;
       display: flex;
@@ -27,118 +26,73 @@
       top: 0;
       z-index: 1000;
     }
-    .navbar h1 {
-      margin: 0;
-      font-size: 1.5rem;
-    }
-    .navbar h1 a {
-      text-decoration: none;
-      color: inherit;
-    }
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-    }
-    .navbar li {
-      margin-left: 20px;
-    }
-    .navbar a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-    .navbar a:hover {
-      text-decoration: underline;
-    }
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem;
-    }
-    section {
-      max-width: 1200px;
-      width: 100%;
-      margin-bottom: 3rem;
-    }
-    #history-section {
-      display: flex;
-      flex-direction: row;
-      gap: 3rem;
-      align-items: flex-start;
-      max-width: 1200px;
-      width: 100%;
-    }
-    .hero-caption {
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    color: white;
-    font-size: 0.85rem;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
-    font-style: italic;
-    }
-    #history-text {
-      flex: 2;
-    }
-    #slideshow {
-      flex: 1;
-      max-width: 2000px;
+    .navbar h1 { margin: 0; font-size: 1.5rem; }
+    .navbar h1 a { text-decoration: none; color: inherit; }
+    .navbar ul { list-style: none; display: flex; margin: 0; padding: 0; }
+    .navbar li { margin-left: 20px; }
+    .navbar a { text-decoration: none; color: #333; font-weight: bold; }
+    .navbar a:hover { text-decoration: underline; }
+
+    /* Hero Section */
+    #hero { width: 100vw; overflow: hidden; margin: 0 0 3rem 0; }
+    .hero-wrapper { position: relative; width: 100vw; height: 60vh; }
+    .hero-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.2);
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
       text-align: center;
+      padding: 1rem;
+      color: white;
+    }
+    .hero-overlay h1 { font-size: 3rem; font-weight: 900; margin: 0; line-height: 1.2; }
+    .hero-caption {
+      position: absolute; bottom: 10px; right: 20px;
+      font-size: 0.85rem; background: rgba(0,0,0,0.4);
+      padding: 0.3rem 0.6rem; border-radius: 4px;
+      font-style: italic; color: white;
+    }
+
+    /* Main Content */
+    main { display: block; padding: 2rem 1rem; }
+    section { max-width: 1200px; width: 100%; margin: 0 auto 3rem auto; }
+
+    /* Slideshow & Zoom */
+    #history-section { display: flex; gap: 3rem; align-items: flex-start; }
+    #history-text { flex: 2; }
+    #slideshow {
+      flex: 1; position: relative; text-align: center;
+      overflow: hidden;
     }
     #slideshow img {
-      max-width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      width: 90%; max-width: 90%; height: auto;
+      border: 1px solid #ccc; border-radius: 8px;
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
     }
-     #slide-image {
-    transition: transform 0.3s ease;
-    cursor: zoom-in;
+    .slideshow-controls { margin-top: 0.5rem; }
+    .slideshow-controls button { margin: 0 5px; padding: 0.3rem 0.6rem; cursor: pointer; }
+    #zoom-btn {
+      position: absolute; bottom: 10px; right: 10px;
+      background: rgba(0,0,0,0.6); color: white;
+      padding: 5px; border-radius: 4px; cursor: pointer;
+      font-size: 1.2rem; z-index: 10;
     }
-    .slideshow-controls {
-      margin-top: 0.5rem;
+    #zoom-modal {
+      display: none; position: fixed;
+      top:0; left:0; width:100vw; height:100vh;
+      background: rgba(0,0,0,0.8);
+      justify-content:center; align-items:center;
+      z-index:10000;
     }
-    .slideshow-controls button {
-      margin: 0 5px;
-      padding: 0.3rem 0.6rem;
-      cursor: pointer;
-    }
+    #zoom-modal img { max-width:90%; max-height:90%; object-fit:contain; }
+
+    /* Footer */
     footer {
-      margin-top: 4em;
-      text-align: center;
-      font-size: 0.9em;
-      color: #888;
-      padding: 2rem;
+      text-align:center; font-size:0.9em; color:#888;
+      padding:2rem 0; border-top:1px solid #e0e0e0;
     }
-    #hero {
-    position: relative;
-    width: 100vw;
-    height: 60vh;
-    background: url('images/lebreton_bsas.jpg') no-repeat center center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 3rem;
-  }
-  .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.2); /* dark overlay */
-    padding: 2rem;
-    text-align: center;
-  }
-  .hero-overlay h1 {
-    color: white;
-    font-size: 3rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    margin: 0;
-    line-height: 1.2;
-  } 
   </style>
 </head>
 <body>
@@ -152,110 +106,83 @@
     </ul>
   </div>
 
-  <main>
-    <section id="hero">
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-wrapper">
+      <img src="images/lebreton_bsas.jpg" alt="Buenos Aires from the customs dock" />
       <div class="hero-overlay">
-        <h1>WORLD HISTORICAL<br>BALANCE OF PAYMENTS</h1>
+        <h1>WORLD HISTORICAL<br />BALANCE OF PAYMENTS</h1>
       </div>
       <div class="hero-caption">
         View of Buenos Aires from the new customs dock, Louis Le Breton (Circa 1860)
       </div>
-    </section>
-   
-    <section id="wbop">
-      <p>A new global dataset covering international transactions from 1800 to the present.</p>
-      <p>Developed by <a href="https://www.gastonnievas.com/" target="_blank">Gastón Nievas</a> and <a href="http://piketty.pse.ens.fr/en/" target="_blank">Thomas Piketty</a>, WBOP harmonizes balance of payments data across time and countries, enabling long-run comparative analysis of trade, capital flows, and macroeconomic adjustment.</p>
-      <p>The database covers 57 core territories (48 main countries and 9 residual regions) for the period 1800-2025. The 48 main countries correspond to 85-90% of global population and GDP. </p>
-      <p>The database is accompanied by a working paper and is intended as a public good for researchers, policymakers, and historians.</p>
-    </section>
-
-  <section id="research">
-    <h2>Research</h2>
-    <p>
-      <strong>Unequal Exchange and North-South Relations: Evidence from Global Trade Flows and the World Balance of Payments 1800–2025</strong> <br>
-      <em>(Nievas and Piketty, 2025)</em>
-    </p>
-    <p>
-      <strong>Abstract:</strong> This paper constructs a new database on global trade flows and the world balance of payments (including goods, services, income and transfers) covering 57 core territories (48 main countries + 9 residual regions) over the 1800–2025 period. This allows us to analyze patterns of global imbalances, current account surplus/deficit and net foreign wealth accumulation over more than two centuries. We quantify the role of colonial transfers and low commodity prices (due to forced labor and other factors) in the build-up of Europe’s foreign wealth during the 1800–1914 period. We compare this experience to the global imbalances which developed during the 1970–2025 period. We stress the persistent role of unequal bargaining power and terms of exchange and the need for collective rules. We also provide counterfactual simulations on foreign wealth accumulation under alternative trade & monetary regimes.
-    </p>
-    <p><a href="/paper.pdf">Download the working paper</a></p>
+    </div>
   </section>
 
+  <!-- Main Content -->
+  <main>
+    <!-- WBOP Intro -->
+    <section id="wbop">
+      <h2>World Historical Balance of Payments (WBOP)</h2>
+      <p>A new global dataset covering international transactions from 1800 to the present.</p>
+      <p>Developed by <a href="https://www.gastonnievas.com/" target="_blank">Gastón Nievas</a> and <a href="http://piketty.pse.ens.fr/en/" target="_blank">Thomas Piketty</a>, WBOP harmonizes balance of payments data across time and countries, enabling long-run comparative analysis of trade, capital flows, and macroeconomic adjustment.</p>
+      <p>The database covers 57 core territories for 1800–2025 and is accompanied by a working paper as a public good for researchers, policymakers, and historians.</p>
+    </section>
+
+    <!-- Research -->
+    <section id="research">
+      <h2>Research</h2>
+      <p><strong>Unequal Exchange and North-South Relations: Evidence from Global Trade Flows and the World Balance of Payments 1800–2025</strong><br /><em>(Nievas and Piketty, 2025)</em></p>
+      <p><strong>Abstract:</strong> This paper constructs a new database on global trade flows and the world balance of payments including goods, services, income, and transfers covering 57 core territories over 1800–2025, analyzing patterns of global imbalances, surplus/deficit, and net wealth accumulation.</p>
+      <p><a href="/paper.pdf">Download the working paper</a></p>
+    </section>
+
+    <!-- Data -->
     <section id="data">
       <h2>Data</h2>
       <p><a href="/data/whbop.zip">Download the dataset</a></p>
     </section>
 
+    <!-- History & Slideshow -->
     <section id="history-section">
       <div id="history-text">
         <h2>Brief history of the Balance of Payments</h2>
-        <h3>Origins</h3>
-        <p>The term “Balance of Payments” dates back to the 14th century, but its modern usage emerged in Sir James Steuart’s <em>An Inquiry into the Principles of Political Economy</em> (1767). See <a href="https://www.elibrary.imf.org/view/journals/024/1951/002/article-A004-en.xml" target="_blank">IMF</a>.</p>
-
-        <h3>Early national compilations & League of Nations</h3>
-        <p>In the 19th century, Great Britain and the United States produced the first national BoP statistics. After World War I disrupted global trade, the League of Nations mandated at its Third Assembly (28 September 1922) the systematic collection and publication of national BoP data. Its first report appeared in 1924, covering 13 countries: League subcommittees refined BoP concepts through the 1930s and reconvened in December 1945 to set the course for postwar international statistics.</p>
-
-        <h3>IMF & the BPM series</h3>
-        <ul>
-          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/BPM1.pdf" target="_blank">BPM 1 (1948)</a></strong>: First edition adopted January 1948, fundamentally based on the developments of the LoN.</li>
-          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/BPM2.pdf" target="_blank">BPM 2 (1950)</a></strong>: Quick update to introduce refinements for greater comparability between countries.</li>
-          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/BPM3.pdf" target="_blank">BPM 3 (1961)</a></strong>: Introduced more detailed sectoral tables.</li>
-          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/bpm4.pdf" target="_blank">BPM 4 (1977)</a></strong>: The collapse of Bretton Woods system of fixed exchange rates had a big impact on international financial markets, which resutled in an update of the BPM. This changes were salient in the financial account, where subcategories were introduced to gather better information to analyze the financial market evolution.</li>
-          <li><strong><a href="https://www.imf.org/external/np/sta/bop/BOPman.pdf" target="_blank">BPM 5 (1993)</a></strong>: Integrated International Investment Position (IIP), allowing for links between outstanding stocks of foreign financial assets and liabilities and their related changes (i.e.: transactions, valuation changes). Capital transfers were moved out of the current account and incorporated into the newly expanded capital and financial account. It also expanded the coverage of trade in services, which grew substantially.</li>
-          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/2007/pdf/BPM6.pdf" target="_blank">BPM 6 (2009)</a></strong>: IIP became central in the analysis, to the point where the manual was renamed to include it in the title. This new focus was the result of the BoP crisis that developing countries experienced in the 90s and early 2000s. Due to the rise of trade in services and trade in intermediate goods, the manual enhanced its coverage of both.</li>
-          <li><strong><a href="https://www.imf.org/-/media/Files/Data/Statistics/BPM6/draft-bpm7-wcv.ashx" target="_blank">BPM 7 (2025)</a></strong>: Fully integrating flows and stocks and addressing globalization, digitalization, and Islamic finance. Countries are encouraged to implement the new standards by 2029–2030.</li>
-        </ul>
-            <p>Over nearly eight decades, BoP standards have grown from basic goods, services, migration, and finance entries into a comprehensive external accounting system indispensable for modern economic analysis.</p>
+        <!-- history content -->
       </div>
-
       <div id="slideshow">
-        <img id="slide-image" src="images/bop_19101923.jpg" alt="BoP image">
-      
-        <div id="zoom-button" style="
-          position: absolute;
-          bottom: 10px;
-          right: 10px;
-          background: rgba(0,0,0,0.6);
-          color: white;
-          padding: 5px 10px;
-          border-radius: 4px;
-          font-size: 0.9rem;
-          cursor: pointer;
-          z-index: 10;
-        ">
-          Zoom
-        </div>
-      
+        <img id="slide-image" src="images/bop_19101923.jpg" alt="BoP image" />
+        <div id="zoom-btn">⤢</div>
         <div class="slideshow-controls">
           <button onclick="changeSlide(-1)">&laquo;</button>
           <button onclick="changeSlide(1)">&raquo;</button>
         </div>
       </div>
-
     </section>
 
-<section id="contact">
-  <h2>Contact Us</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; text-align: center;">
-
-    <div style="flex: 1; min-width: 200px;">
-      <img src="images/gaston.png" alt="Gastón Nievas" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; margin-bottom: 0.5rem;">
-      <h3>Gastón Nievas</h3>
-      <p><a href="https://www.gastonnievas.com/" target="_blank">Personal website</a></p>
-      <p>Email: gaston.nievas [at] psemail.eu</p>
-    </div>
-
-    <div style="flex: 1; min-width: 200px;">
-      <img src="images/thomas.jpg" alt="Thomas Piketty" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; margin-bottom: 0.5rem;">
-      <h3>Thomas Piketty</h3>
-      <p><a href="http://piketty.pse.ens.fr/en/" target="_blank">Personal website</a></p>
-      <p>Email: thomas.piketty [at] psemail.eu</p>
-    </div>
-
-  </div>
-</section>
-
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;text-align:center;">
+        <div style="flex:1;min-width:200px;">
+          <img src="images/gaston.png" alt="Gastón Nievas" style="width:150px;height:150px;border-radius:50%;object-fit:cover;margin-bottom:0.5rem;" />
+          <h3>Gastón Nievas</h3>
+          <p><a href="https://www.gastonnievas.com/" target="_blank">Personal website</a></p>
+          <p>Email: gaston.nievas [at] psemail.eu</p>
+        </div>
+        <div style="flex:1;min-width:200px;">
+          <img src="images/thomas.jpg" alt="Thomas Piketty" style="width:150px;height:150px;border-radius:50%;object-fit:cover;margin-bottom:0.5rem;" />
+          <h3>Thomas Piketty</h3>
+          <p><a href="http://piketty.pse.ens.fr/en/" target="_blank">Personal website</a></p>
+          <p>Email: thomas.piketty [at] pse.ens.fr</p>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- Zoom Modal -->
+  <div id="zoom-modal" onclick="this.style.display='none'" style="display:flex;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;">
+    <img id="modal-img" src="" alt="Zoomed slide" style="max-width:90%;max-height:90%;object-fit:contain;" />
+  </div>
 
   <footer>
     <p>© {{ site.time | date: '%Y' }} WBoP | wbop.world</p>
@@ -263,47 +190,22 @@
 
   <script>
     const images = [
-      
-      "bop_19101923.jpg",
-      "boptable_1023a.jpg",
-      "boptable_1023b.jpg",
-      "bop_1930.jpg",
-      "boptable_30a.jpg",
-      "boptable_30b.jpg",
-      "bop_19311932.jpg",
-      "boptable_3132a.jpg",
-      "boptable_3132b.jpg",
-      "boptable_3132c.jpg",
-      "boptable_3132d.jpg"
+      "bop_19101923.jpg","boptable_1023a.jpg","boptable_1023b.jpg",
+      "bop_1930.jpg","boptable_30a.jpg","boptable_30b.jpg",
+      "bop_19311932.jpg","boptable_3132a.jpg","boptable_3132b.jpg",
+      "boptable_3132c.jpg","boptable_3132d.jpg"
     ];
-
-    let currentSlide = 0;
-    const imageElement = document.getElementById("slide-image");
-
-    function showSlide(index) {
-      currentSlide = (index + images.length) % images.length;
-      imageElement.src = `images/${images[currentSlide]}`;
-    }
-
-    function changeSlide(step) {
-      showSlide(currentSlide + step);
-    }
-
-    setInterval(() => {
-      changeSlide(1);
-    }, 5000);
+    let currentSlide=0;
+    const imgEl=document.getElementById('slide-image');
+    function changeSlide(step){currentSlide=(currentSlide+step+images.length)%images.length;imgEl.src=`images/${images[currentSlide]}`;}
+    setInterval(()=>changeSlide(1),5000);
+    const zoomBtn=document.getElementById('zoom-btn');
+    zoomBtn.addEventListener('click',e=>{e.stopPropagation();const modal=document.getElementById('zoom-modal');document.getElementById('modal-img').src=imgEl.src;modal.style.display='flex';});
   </script>
 
   <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
   {% if site.google_analytics %}
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    ga('create', '{{ site.google_analytics }}', 'auto');
-    ga('send', 'pageview');
-  </script>
+    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','{{ site.google_analytics }}','auto');ga('send','pageview');</script>
   {% endif %}
 </body>
 </html>
