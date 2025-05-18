@@ -30,20 +30,27 @@
       margin: 0;
       font-size: 1.5rem;
     }
-    .navbar h1 a { text-decoration: none; color: inherit; }
+    .navbar h1 a {
+      text-decoration: none;
+      color: inherit;
+    }
     .navbar ul {
       list-style: none;
       display: flex;
       margin: 0;
       padding: 0;
     }
-    .navbar li { margin-left: 20px; }
+    .navbar li {
+      margin-left: 20px;
+    }
     .navbar a {
       text-decoration: none;
       color: #333;
       font-weight: bold;
     }
-    .navbar a:hover { text-decoration: underline; }
+    .navbar a:hover {
+      text-decoration: underline;
+    }
 
     main {
       display: flex;
@@ -51,14 +58,14 @@
       align-items: center;
       padding: 2rem 1rem;
     }
-    /* offset anchors so header doesn't cover content */
+    /* ensure sections scroll into view above the header */
     section {
       scroll-margin-top: 80px;
       max-width: 1200px;
       width: 100%;
       margin-bottom: 3rem;
     }
-    /* larger headings */
+    /* larger section headings */
     section h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
@@ -74,18 +81,24 @@
       align-items: flex-start;
       width: 100%;
     }
-    /* make slideshow wider relative to text */
-    #history-text { flex: 1; }
-    #slideshow { 
+    /* text narrower, slideshow wider */
+    #history-text {
+      flex: 1;
+    }
+    #slideshow {
       flex: 2;
       position: relative;
       text-align: center;
       overflow: hidden;
     }
+    .slide-item {
+      display: inline-block;
+      position: relative;
+    }
     /* smaller slideshow images */
     #slideshow img {
-      width: 80%;
-      max-width: 600px;
+      width: 60%;
+      max-width: 400px;
       height: auto;
       border: 1px solid #ccc;
       border-radius: 8px;
@@ -94,7 +107,7 @@
       display: block;
       margin: 0 auto;
     }
-    /* expand button inside image */
+    /* Expand (zoom) button inside image */
     #zoom-btn {
       position: absolute;
       bottom: 10px;
@@ -111,7 +124,7 @@
       text-align: center;
       z-index: 10;
     }
-    /* modal */
+    /* Modal for zoomed image */
     #zoom-modal {
       display: none;
       position: fixed;
@@ -150,7 +163,7 @@
       padding: 2rem;
     }
 
-    /* hero section with actual IMG */
+    /* restore hero section with <img> and overlay */
     #hero {
       width: 100vw;
       overflow: hidden;
@@ -297,7 +310,6 @@
     </section>
   </main>
 
-  <!-- zoom modal -->
   <div id="zoom-modal" onclick="this.style.display='none'">
     <img id="modal-img" src="" alt="Zoomed image">
   </div>
