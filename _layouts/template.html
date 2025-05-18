@@ -108,34 +108,6 @@
       padding: 0.3rem 0.6rem;
       cursor: pointer;
     }
-    #zoom-btn {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background: rgba(0,0,0,0.6);
-      color: white;
-      padding: 5px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      z-index: 10;
-    }
-    #zoom-modal {
-      display: none;           /* hidden by default */
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 10000;
-    }
-    
-    #zoom-modal img {
-      max-width: 90%;
-      max-height: 90%;
-      object-fit: contain;
-    }
     footer {
       margin-top: 4em;
       text-align: center;
@@ -254,9 +226,6 @@
           Zoom
         </div>
       
-      <div id="slideshow">
-        <img id="slide-image" src="images/bop_19101923.jpg" alt="BoP image">
-        <div id="zoom-btn">⤢</div>
         <div class="slideshow-controls">
           <button onclick="changeSlide(-1)">&laquo;</button>
           <button onclick="changeSlide(1)">&raquo;</button>
@@ -336,13 +305,5 @@
     ga('send', 'pageview');
   </script>
   {% endif %}
-
-  <div id="zoom-modal" onclick="this.style.display='none'" 
-     style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;
-            background:rgba(0,0,0,0.8);justify-content:center;align-items:center;
-            z-index:10000;display:flex;">
-  <img id="modal-img" src="" 
-       style="max-width:90%;max-height:90%;object-fit:contain;" />
-  </div>
 </body>
 </html>
