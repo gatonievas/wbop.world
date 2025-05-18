@@ -15,6 +15,9 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
+    /* anchor to very top */
+    body#top { }
+
     .navbar {
       background-color: #f7f9fc;
       display: flex;
@@ -62,16 +65,16 @@
       max-width: 1200px;
       width: 100%;
       margin-bottom: 3rem;
-      /* ensure section anchors sit just below header */
-      scroll-margin-top: 80px;
+      scroll-margin-top: 80px; /* ensure sticky header offset */
     }
-    /* make section headings bigger */
+    /* bigger section headings */
     section h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
 
-    #history-section {
+    #history-section,
+    #research {
       display: flex;
       flex-direction: row;
       gap: 3rem;
@@ -79,6 +82,7 @@
       max-width: 1200px;
       width: 100%;
     }
+
     .hero-caption {
       position: absolute;
       bottom: 10px;
@@ -90,10 +94,12 @@
       border-radius: 4px;
       font-style: italic;
     }
-    #history-text {
+    #history-text,
+    #research-text {
       flex: 2;
     }
-    #slideshow {
+    #slideshow,
+    #research-slideshow {
       flex: 1;
       max-width: 2000px;
       text-align: center;
@@ -104,7 +110,8 @@
       display: inline-block;
       position: relative;
     }
-    #slideshow img {
+    #slideshow img,
+    #research-slideshow img {
       max-width: 100%;
       height: auto;
       border: 1px solid #ccc;
@@ -114,8 +121,8 @@
       display: block;
       margin: 0 auto;
     }
-    /* Expand (zoom) button inside image */
-    #zoom-btn {
+    /* zoom button */
+    .zoom-btn {
       position: absolute;
       bottom: 10px;
       right: 10px;
@@ -131,7 +138,7 @@
       text-align: center;
       z-index: 10;
     }
-    /* Modal for zoomed image */
+    /* modal */
     #zoom-modal {
       display: none;
       position: fixed;
@@ -194,9 +201,9 @@
     } 
   </style>
 </head>
-<body>
+<body id="top">
   <div class="navbar">
-    <h1><a href="#wbop">WBOP</a></h1>
+    <h1><a href="#top">WBOP</a></h1>
     <ul>
       <li><a href="#research">Research</a></li>
       <li><a href="#data">Data</a></li>
@@ -223,15 +230,27 @@
     </section>
 
     <section id="research">
-      <h2>Research</h2>
-      <p>
-        <strong>Unequal Exchange and North-South Relations: Evidence from Global Trade Flows and the World Balance of Payments 1800–2025</strong><br>
-        <em>(Nievas and Piketty, 2025)</em>
-      </p>
-      <p>
-        <strong>Abstract:</strong> This paper constructs a new database on global trade flows and the world balance of payments (including goods, services, income and transfers) covering 57 core territories (48 main countries + 9 residual regions) over the 1800–2025 period. This allows us to analyze patterns of global imbalances, current account surplus/deficit and net foreign wealth accumulation over more than two centuries. We quantify the role of colonial transfers and low commodity prices (due to forced labor and other factors) in the build-up of Europe’s foreign wealth during the 1800–1914 period. We compare this experience to the global imbalances which developed during the 1970–2025 period. We stress the persistent role of unequal bargaining power and terms of exchange and the need for collective rules. We also provide counterfactual simulations on foreign wealth accumulation under alternative trade & monetary regimes.
-      </p>
-      <p><a href="/paper.pdf">Download the working paper</a></p>
+      <div id="research-text">
+        <h2>Research</h2>
+        <p>
+          <strong>Unequal Exchange and North-South Relations: Evidence from Global Trade Flows and the World Balance of Payments 1800–2025</strong><br>
+          <em>(Nievas and Piketty, 2025)</em>
+        </p>
+        <p>
+          <strong>Abstract:</strong> This paper constructs a new database on global trade flows and the world balance of payments (including goods, services, income and transfers) covering 57 core territories (48 main countries + 9 residual regions) over the 1800–2025 period. This allows us to analyze patterns of global imbalances, current account surplus/deficit and net foreign wealth accumulation over more than two centuries. We quantify the role of colonial transfers and low commodity prices (due to forced labor and other factors) in the build-up of Europe’s foreign wealth during the 1800–1914 period. We compare this experience to the global imbalances which developed during the 1970–2025 period. We stress the persistent role of unequal bargaining power and terms of exchange and the need for collective rules. We also provide counterfactual simulations on foreign wealth accumulation under alternative trade & monetary regimes.
+        </p>
+        <p><a href="/paper.pdf">Download the working paper</a></p>
+      </div>
+      <div id="research-slideshow">
+        <div class="slide-item">
+          <img id="research-slide-image" src="images/NievasPiketty2025AppendixFigures-2.jpg" alt="Appendix Figure 2">
+          <button class="zoom-btn" id="research-zoom-btn">⤢</button>
+        </div>
+        <div class="slideshow-controls">
+          <button onclick="changeResearchSlide(-1)">‹</button>
+          <button onclick="changeResearchSlide(1)">›</button>
+        </div>
+      </div>
     </section>
 
     <section id="data">
@@ -261,7 +280,7 @@
       <div id="slideshow">
         <div class="slide-item">
           <img id="slide-image" src="images/bop_19101923.jpg" alt="BoP image">
-          <button id="zoom-btn">⤢</button>
+          <button class="zoom-btn" id="zoom-btn">⤢</button>
         </div>
         <div class="slideshow-controls">
           <button onclick="changeSlide(-1)">‹</button>
@@ -298,6 +317,7 @@
   </footer>
 
   <script>
+    // history slideshow
     const images = [
       "bop_19101923.jpg",
       "boptable_1023a.jpg",
@@ -311,25 +331,41 @@
       "boptable_3132c.jpg",
       "boptable_3132d.jpg"
     ];
-
     let currentSlide = 0;
     const imageElement = document.getElementById("slide-image");
-
     function changeSlide(step) {
       currentSlide = (currentSlide + step + images.length) % images.length;
       imageElement.src = `images/${images[currentSlide]}`;
     }
-
     setInterval(() => changeSlide(1), 5000);
 
-    const zoomBtn = document.getElementById("zoom-btn");
+    // research slideshow
+    const researchImages = [
+      "NievasPiketty2025AppendixFigures-2.jpg",
+      "NievasPiketty2025AppendixFigures-27.jpg",
+      "NievasPiketty2025AppendixFigures-34.jpg",
+      "NievasPiketty2025AppendixFigures-79.jpg"
+    ];
+    let researchCurrent = 0;
+    const researchImgEl = document.getElementById("research-slide-image");
+    function changeResearchSlide(step) {
+      researchCurrent = (researchCurrent + step + researchImages.length) % researchImages.length;
+      researchImgEl.src = `images/${researchImages[researchCurrent]}`;
+    }
+    setInterval(() => changeResearchSlide(1), 5000);
+
+    // zoom modal
+    const zoomBtns = document.querySelectorAll(".zoom-btn");
     const zoomModal = document.getElementById("zoom-modal");
     const modalImg = document.getElementById("modal-img");
-
-    zoomBtn.addEventListener("click", function(e) {
-      e.stopPropagation();
-      modalImg.src = imageElement.src;
-      zoomModal.style.display = "flex";
+    zoomBtns.forEach(btn => {
+      btn.addEventListener("click", e => {
+        e.stopPropagation();
+        const parent = e.currentTarget.parentElement;
+        const img = parent.querySelector("img");
+        modalImg.src = img.src;
+        zoomModal.style.display = "flex";
+      });
     });
   </script>
 
