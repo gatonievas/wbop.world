@@ -52,60 +52,6 @@
     .navbar a:hover {
       text-decoration: underline;
     }
-
-    #hero {
-      width: 100vw;
-      overflow: hidden;
-      margin-bottom: 3rem;
-    }
-
-    .hero-wrapper {
-      position: relative;
-      width: 100%;
-      height: 60vh;
-    }
-
-    .hero-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.2);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    .hero-overlay h1 {
-      font-size: 3rem;
-      font-weight: 900;
-      margin: 0;
-      line-height: 1.2;
-    }
-
-    .hero-caption {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      font-size: 0.85rem;
-      background-color: rgba(0, 0, 0, 0.4);
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-      font-style: italic;
-    }
-
     main {
       display: flex;
       flex-direction: column;
@@ -124,6 +70,17 @@
       align-items: flex-start;
       max-width: 1200px;
       width: 100%;
+    }
+    .hero-caption {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    color: white;
+    font-size: 0.85rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-style: italic;
     }
     #history-text {
       flex: 2;
@@ -154,6 +111,31 @@
       color: #888;
       padding: 2rem;
     }
+    #hero {
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    background: url('images/lebreton_bsas.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  .hero-overlay {
+    background-color: rgba(0, 0, 0, 0.2); /* dark overlay */
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .hero-overlay h1 {
+    color: white;
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin: 0;
+    line-height: 1.2;
+  } 
   </style>
 </head>
 <body>
@@ -167,24 +149,19 @@
     </ul>
   </div>
 
-  <section id="hero">
-    <div class="hero-wrapper">
-      <img src="images/lebreton_bsas.jpg" alt="Buenos Aires from the customs dock">
+  <main>
+    <section id="hero">
       <div class="hero-overlay">
         <h1>WORLD HISTORICAL<br>BALANCE OF PAYMENTS</h1>
-        <div class="hero-caption">
-          View of Buenos Aires from the new customs dock, Louis Le Breton (Circa 1860)
-        </div>
       </div>
-    </div>
-  </section>
-
-  <main>
-
+      <div class="hero-caption">
+        View of Buenos Aires from the new customs dock, Louis Le Breton (Circa 1860)
+      </div>
+    </section>
+   
     <section id="wbop">
       <p>A new global dataset covering international transactions from 1800 to the present.</p>
       <p>Developed by Gastón Nievas and Thomas Piketty, WBOP harmonizes balance of payments data across time and countries, enabling long-run comparative analysis of trade, capital flows, and macroeconomic adjustment.</p>
-      <p>The database covers 57 core territories (48 main countries and 9 residual regions) over the 1800-2025 period. The 48 main countries correspond to 85-90% of global population or GDP.</p>
       <p>The database is accompanied by a working paper and is intended as a public good for researchers, policymakers, and historians.</p>
     </section>
 
