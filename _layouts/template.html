@@ -58,11 +58,23 @@
       align-items: center;
       padding: 2rem 1rem;
     }
+    /* ensure anchor sections scroll above header */
     section {
+      scroll-margin-top: 80px;
       max-width: 1200px;
       width: 100%;
       margin-bottom: 3rem;
     }
+    /* larger section headings */
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
     #history-section {
       display: flex;
       flex-direction: row;
@@ -71,22 +83,12 @@
       max-width: 1200px;
       width: 100%;
     }
-    .hero-caption {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      color: white;
-      font-size: 0.85rem;
-      background-color: rgba(0, 0, 0, 0.4);
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-      font-style: italic;
-    }
+    /* swap flex ratios so slideshow is larger */
     #history-text {
-      flex: 2;
+      flex: 1;
     }
     #slideshow {
-      flex: 1;
+      flex: 2;
       max-width: 2000px;
       text-align: center;
       position: relative;
@@ -97,7 +99,7 @@
       position: relative;
     }
     #slideshow img {
-      max-width: 100%;
+      width: 100%;
       height: auto;
       border: 1px solid #ccc;
       border-radius: 8px;
@@ -152,6 +154,7 @@
     .slideshow-controls button:hover {
       color: #000;
     }
+
     footer {
       margin-top: 4em;
       text-align: center;
