@@ -58,54 +58,52 @@
       align-items: center;
       padding: 2rem 1rem;
     }
-    /* ensure sections scroll into view above the header */
     section {
-      scroll-margin-top: 80px;
       max-width: 1200px;
       width: 100%;
       margin-bottom: 3rem;
     }
-    /* larger section headings */
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    section h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-    }
-
     #history-section {
       display: flex;
+      flex-direction: row;
       gap: 3rem;
       align-items: flex-start;
+      max-width: 1200px;
       width: 100%;
     }
-    /* text narrower, slideshow wider */
+    .hero-caption {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      color: white;
+      font-size: 0.85rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      font-style: italic;
+    }
     #history-text {
-      flex: 1;
+      flex: 2;
     }
     #slideshow {
-      flex: 2;
-      position: relative;
+      flex: 1;
+      max-width: 2000px;
       text-align: center;
+      position: relative;
       overflow: hidden;
     }
     .slide-item {
       display: inline-block;
       position: relative;
     }
-    /* smaller slideshow images */
     #slideshow img {
-      width: 60%;
-      max-width: 400px;
+      max-width: 100%;
       height: auto;
       border: 1px solid #ccc;
       border-radius: 8px;
       transition: transform 0.3s ease;
       cursor: pointer;
       display: block;
-      margin: 0 auto;
     }
     /* Expand (zoom) button inside image */
     #zoom-btn {
@@ -154,7 +152,6 @@
     .slideshow-controls button:hover {
       color: #000;
     }
-
     footer {
       margin-top: 4em;
       text-align: center;
@@ -162,34 +159,21 @@
       color: #888;
       padding: 2rem;
     }
-
-    /* restore hero section with <img> and overlay */
     #hero {
-      width: 100vw;
-      overflow: hidden;
-      margin-bottom: 3rem;
-    }
-    .hero-wrapper {
       position: relative;
       width: 100vw;
       height: 60vh;
-    }
-    .hero-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      background: url('images/lebreton_bsas.jpg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3rem;
     }
     .hero-overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
       background-color: rgba(0, 0, 0, 0.2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 2rem;
       text-align: center;
-      padding: 1rem;
     }
     .hero-overlay h1 {
       color: white;
@@ -198,18 +182,7 @@
       letter-spacing: 2px;
       margin: 0;
       line-height: 1.2;
-    }
-    .hero-caption {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      color: white;
-      font-size: 0.85rem;
-      background-color: rgba(0, 0, 0, 0.4);
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-      font-style: italic;
-    }
+    } 
   </style>
 </head>
 <body>
@@ -225,21 +198,18 @@
 
   <main>
     <section id="hero">
-      <div class="hero-wrapper">
-        <img src="images/lebreton_bsas.jpg" alt="Buenos Aires from the customs dock">
-        <div class="hero-overlay">
-          <h1>WORLD HISTORICAL<br>BALANCE OF PAYMENTS</h1>
-        </div>
-        <div class="hero-caption">
-          View of Buenos Aires from the new customs dock, Louis Le Breton (Circa 1860)
-        </div>
+      <div class="hero-overlay">
+        <h1>WORLD HISTORICAL<br>BALANCE OF PAYMENTS</h1>
+      </div>
+      <div class="hero-caption">
+        View of Buenos Aires from the new customs dock, Louis Le Breton (Circa 1860)
       </div>
     </section>
-
+   
     <section id="wbop">
       <p>A new global dataset covering international transactions from 1800 to the present.</p>
       <p>Developed by <a href="https://www.gastonnievas.com/" target="_blank">Gastón Nievas</a> and <a href="http://piketty.pse.ens.fr/en/" target="_blank">Thomas Piketty</a>, WBOP harmonizes balance of payments data across time and countries, enabling long-run comparative analysis of trade, capital flows, and macroeconomic adjustment.</p>
-      <p>The database covers 57 core territories (48 main countries and 9 residual regions) for the period 1800–2025. The 48 main countries correspond to 85–90% of global population and GDP.</p>
+      <p>The database covers 57 core territories (48 main countries and 9 residual regions) for the period 1800-2025. The 48 main countries correspond to 85-90% of global population and GDP.</p>
       <p>The database is accompanied by a working paper and is intended as a public good for researchers, policymakers, and historians.</p>
     </section>
 
@@ -269,13 +239,13 @@
         <p>In the 19th century, Great Britain and the United States produced the first national BoP statistics. After World War I disrupted global trade, the League of Nations mandated at its Third Assembly (28 September 1922) the systematic collection and publication of national BoP data. Its first report appeared in 1924, covering 13 countries: League subcommittees refined BoP concepts through the 1930s and reconvened in December 1945 to set the course for postwar international statistics.</p>
         <h3>IMF & the BPM series</h3>
         <ul>
-          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/BPM1.pdf" target="_blank">BPM 1 (1948)</a></strong>: First edition adopted January 1948, fundamentally based on developments of the LoN.</li>
+          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/BPM1.pdf" target="_blank">BPM 1 (1948)</a></strong>: First edition adopted January 1948, fundamentally based on the developments of the LoN.</li>
           <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/BPM2.pdf" target="_blank">BPM 2 (1950)</a></strong>: Quick update to introduce refinements for greater comparability between countries.</li>
           <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/BPM3.pdf" target="_blank">BPM 3 (1961)</a></strong>: Introduced more detailed sectoral tables.</li>
-          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/bpm4.pdf" target="_blank">BPM 4 (1977)</a></strong>: The collapse of the Bretton Woods fixed-rate system had a big impact on international financial markets, resulting in an update of the BPM with new subcategories in the financial account.</li>
-          <li><strong><a href="https://www.imf.org/external/np/sta/bop/BOPman.pdf" target="_blank">BPM 5 (1993)</a></strong>: Integrated IIP, linking stocks and flows, moved capital transfers into capital/financial account, and expanded services coverage.</li>
-          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/2007/pdf/BPM6.pdf" target="_blank">BPM 6 (2009)</a></strong>: Renamed to include IIP, reflecting BoP crises of developing countries and growing importance of services and intermediate goods trade.</li>
-          <li><strong><a href="https://www.imf.org/-/media/Files/Data/Statistics/BPM6/draft-bpm7-wcv.ashx" target="_blank">BPM 7 (2025)</a></strong>: Fully integrates flows and stocks, addresses globalization, digitalization, and Islamic finance; encouraged adoption by 2029–2030.</li>
+          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/archives/bpm4.pdf" target="_blank">BPM 4 (1977)</a></strong>: The collapse of the Bretton Woods system of fixed exchange rates had a big impact on international financial markets, which resulted in an update of the BPM. These changes were salient in the financial account, where subcategories were introduced to gather better information to analyze the financial market evolution.</li>
+          <li><strong><a href="https://www.imf.org/external/np/sta/bop/BOPman.pdf" target="_blank">BPM 5 (1993)</a></strong>: Integrated International Investment Position (IIP), allowing for links between outstanding stocks of foreign financial assets and liabilities and their related changes (i.e.: transactions, valuation changes). Capital transfers were moved out of the current account and incorporated into the newly expanded capital and financial account. It also expanded the coverage of trade in services, which grew substantially.</li>
+          <li><strong><a href="https://www.imf.org/external/pubs/ft/bop/2007/pdf/BPM6.pdf" target="_blank">BPM 6 (2009)</a></strong>: IIP became central in the analysis, to the point where the manual was renamed to include it in the title. This new focus was the result of the BoP crisis that developing countries experienced in the 90s and early 2000s. Due to the rise of trade in services and trade in intermediate goods, the manual enhanced its coverage of both.</li>
+          <li><strong><a href="https://www.imf.org/-/media/Files/Data/Statistics/BPM6/draft-bpm7-wcv.ashx" target="_blank">BPM 7 (2025)</a></strong>: Fully integrating flows and stocks and addressing globalization, digitalization, and Islamic finance. Countries are encouraged to implement the new standards by 2029–2030.</li>
         </ul>
         <p>Over nearly eight decades, BoP standards have grown from basic goods, services, migration, and finance entries into a comprehensive external accounting system indispensable for modern economic analysis.</p>
       </div>
@@ -341,13 +311,15 @@
       imageElement.src = `images/${images[currentSlide]}`;
     }
 
-    setInterval(() => changeSlide(1), 5000);
+    setInterval(() => {
+      changeSlide(1);
+    }, 5000);
 
     const zoomBtn = document.getElementById("zoom-btn");
     const zoomModal = document.getElementById("zoom-modal");
     const modalImg = document.getElementById("modal-img");
 
-    zoomBtn.addEventListener("click", e => {
+    zoomBtn.addEventListener("click", function(e) {
       e.stopPropagation();
       modalImg.src = imageElement.src;
       zoomModal.style.display = "flex";
