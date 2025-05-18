@@ -96,10 +96,7 @@
       border: 1px solid #ccc;
       border-radius: 8px;
     }
-     #slide-image {
-    transition: transform 0.3s ease;
-    cursor: zoom-in;
-    }
+
     .slideshow-controls {
       margin-top: 0.5rem;
     }
@@ -210,22 +207,7 @@
 
       <div id="slideshow">
         <img id="slide-image" src="images/bop_19101923.jpg" alt="BoP image">
-      
-        <div id="zoom-button" style="
-          position: absolute;
-          bottom: 10px;
-          right: 10px;
-          background: rgba(0,0,0,0.6);
-          color: white;
-          padding: 5px 10px;
-          border-radius: 4px;
-          font-size: 0.9rem;
-          cursor: pointer;
-          z-index: 10;
-        ">
-          Zoom
-        </div>
-      
+            
         <div class="slideshow-controls">
           <button onclick="changeSlide(-1)">&laquo;</button>
           <button onclick="changeSlide(1)">&raquo;</button>
