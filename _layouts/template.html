@@ -259,7 +259,7 @@
       <p>Download the full WBOP dataset <a href="/Data/NievasPiketty2025WBOPFinalSeries.xlsx">(xlsx)</a></p>
       <p>Download the main figures and tables <a href="/Data/NievasPiketty2025MainFigures.pdf">(pdf)</a> <a href="/Data/NievasPiketty2025MainFigures.xlsx">(xlsx)</a></p>
       <p>Download the full set of appendix figures <a href="/Data/NievasPiketty2025AppendixFigures.pdf">(pdf)</a> <a href="/Data/NievasPiketty2025AppendixFigures.xlsx">(xlsx)</a></p>
-      <p>Download the full replication package <a href="/Data/NievasPiketty2025.zip">(zip)</a></p>
+      <p> Download the full replication package <a href="#" id="download-zip">(zip)</a></p>
     </section>
 
     <section id="history-section">
@@ -374,6 +374,36 @@
     });
   </script>
 
+  <!-- ZIP‐on‐the‐fly -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script>
+    document.getElementById("download-zip").addEventListener("click", async function(e) {
+      e.preventDefault();
+      const zip = new JSZip();
+      const folder = zip.folder("NievasPiketty2025");
+      const files = [
+        "NievasPiketty2025.pdf",
+        "NievasPiketty2025AppendixFigures.pdf",
+        "NievasPiketty2025AppendixFigures.xls",
+        "NievasPiketty2025AppendixHistorical.xls",
+        "NievasPiketty2025AppendixIMF.xls",
+        "NievasPiketty2025MainFigures.pdf",
+        "NievasPiketty2025MainFigures.xls",
+        "NievasPiketty2025ReplicationCodes.zip",
+        "NievasPiketty2025Slides.pdf",
+        "NievasPiketty2025WBOPFinalSeries.xls"
+      ];
+      for (let name of files) {
+        const res = await fetch(`/Data/replication%20package/${name}`);
+        if (!res.ok) { alert("Failed to fetch "+name); return; }
+        folder.file(name, await res.blob());
+      }
+      const blob = await zip.generateAsync({ type: "blob" });
+      saveAs(blob, "NievasPiketty2025.zip");
+    });
+  </script>
+  
   <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
   {% if site.google_analytics %}
     <script>
